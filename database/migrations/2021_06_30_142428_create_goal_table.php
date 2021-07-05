@@ -17,7 +17,7 @@ class CreateGoalTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description', 255);
-            $table->integer('current_progress');
+            $table->integer('current_progress')->default(0);
             $table->integer('step_progress');
             $table->timestamp('start_date');
             $table->timestamp('end_date')->default(\DB::raw('CURRENT_TIMESTAMP'));
