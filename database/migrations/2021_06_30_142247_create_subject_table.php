@@ -17,8 +17,6 @@ class CreateSubjectTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description', 255);
-            $table->bigInteger('goal_id')->unsigned()->nullable();
-            $table->foreign('goal_id')->references('id')->on('goal');
         });
     }
 

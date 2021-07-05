@@ -21,6 +21,11 @@ class CreateGoalTable extends Migration
             $table->integer('step_progress');
             $table->timestamp('start_date');
             $table->timestamp('end_date')->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->bigInteger('subject_id')->unsigned();
+        });
+
+        Schema::table('goal', function($table){
+            $table->foreign('subject_id')->references('id')->on('subject');
         });
     }
 
