@@ -18,18 +18,19 @@ class GoalController extends Controller
         'name' => 'required',
         'description' => 'required',
         'endDate' => 'required',
-        'steps' => 'required'
+        'steps' => 'required',
+        'subject_id' => 'required'
       ]);
 
       if($validator->fails()){
         return response()->json(['status_code'=>400, 'message'=> 'Bad Request']);
       }
 
-      $user = new User();
-      $user->name = $request->name;
-      $user->email = $request->email;
-      $user->password = bcrypt($request->password);
-      $user->save();
+      $goal = new Goal();
+      $goal->name = $request->name;
+      $goal->email = $request->email;
+      $goal->password = bcrypt($request->password);
+      $goal->save();
 
       return response()->json([
         'status_code'=>200,
